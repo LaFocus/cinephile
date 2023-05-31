@@ -1,7 +1,7 @@
 <template>
     <transition name="upcoming-item" mode="out-in">
         <div class="main__upcoming-item">
-            <img src="@/assets/images/bg.png" class="main__upcoming-item-img" alt="">
+            <img :src="imgUrl + '/pbMbDlOAkVuvnxovBA2ENin59xH.jpg'" class="main__upcoming-item-img" alt="">
             <div class="main__upcoming-content">
                 <div class="main__upcoming-info">
                     <h1 class="main__upcoming-content-title">Мир Юрского периода: Господство</h1>
@@ -25,4 +25,7 @@
 
 <script setup>
 import BtnMore from '@/components/UI/BtnMore.vue'
+import { imgUrl } from '@/static.js'
+
+
 </script>

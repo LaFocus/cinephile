@@ -8,4 +8,19 @@
 
 <script setup>
 import Upcomingitem from '@/components/Upcoming/Upcomingitem.vue';
+import { useUpcoming } from '@/stores/upcoming'
+import { onMounted, ref } from "vue"
+
+let upcomingStore = useUpcoming()
+
+
+
+
+
+onMounted(() => {
+    upcomingStore.getUpcoming()
+})
+
+
 </script>
+
