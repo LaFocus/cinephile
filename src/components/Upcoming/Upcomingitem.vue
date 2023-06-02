@@ -1,7 +1,7 @@
 <template>
     <transition name="upcoming-item" mode="out-in">
         <div class="main__upcoming-item" v-if="slideView == index">
-            <img :src="imgUrl + movie.backdrop_path" class="main__upcoming-item-img" alt="">
+            <img :src="imgUrlFull + movie.backdrop_path" class="main__upcoming-item-img" alt="">
             <div class="main__upcoming-content">
                 <div class="main__upcoming-info">
                     <h1 class="main__upcoming-content-title">{{ movie.title }}</h1>
@@ -23,7 +23,7 @@
 
 <script setup>
 import BtnMore from '@/components/UI/BtnMore.vue'
-import { imgUrl } from '@/static.js'
+import { imgUrl, imgUrlFull } from '@/static.js'
 
 const props = defineProps({
     movie: {
