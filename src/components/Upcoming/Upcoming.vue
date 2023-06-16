@@ -1,16 +1,11 @@
 <template>
     <transition name="upcoming" mode="out-in">
-        <div class="main__upcoming" >
-            <Upcomingitem 
-                v-for="(movie, index) in getUpcomingArr" 
-                :key="movie.id"
-                :movie="movie"
-                :index="index"
-                @slideNext="slideNext"
-                :slideView="slideView"
-                :next="getUpcomingArr[index + 1 == getUpcomingArr.length ? 0 : index + 1]"
-            />
+        <div class="main__upcoming" v-if="getUpcomingArr">
+            <Upcomingitem v-for="(movie, index) in getUpcomingArr" :key="movie.id" :movie="movie" :index="index"
+                @slideNext="slideNext" :slideView="slideView"
+                :next="getUpcomingArr[index + 1 == getUpcomingArr.length ? 0 : index + 1]" />
         </div>
+        <Loader v-else />
     </transition>
 </template>
 
@@ -29,14 +24,13 @@ let timeout = ref(null)
 const slide = () => {
     if (getUpcomingArr.value.length - 1 == slideView.value) slideView.value = 0
     else slideView.value++
-    timeout = setTimeout(slide, 5000)
+    timeout = setTimeout(slide, 7000)
 }
 
 const slideNext = () => {
     clearTimeout(timeout)
     slide()
 }
-
 
 
 onMounted(() => {

@@ -17,7 +17,6 @@ export const useUpcoming = defineStore({
             const arrayWithPhoto = results.filter(movie => movie.backdrop_path != null)
             // this.upcoming = results
             this.upcoming = arrayWithPhoto
-            console.log(this.upcoming);
             
         }
     }
