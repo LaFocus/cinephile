@@ -9,10 +9,22 @@
             <Swiper-slide class="main__video-item" v-for="(item, idx) in content" :key="item.id">
                 <img v-lazy="imgUrlFull + item.poster_path" src="@/assets/images/poster.png" alt=""
                     class="main__video-item-img">
-                <router-link :to="`${props.type}/`" />
+                <router-link :to="`${props.type}/`" class="main__video-item-link"/>
                 <h2 class="main__video-item-title">{{ item.title || item.name }}</h2>
             </Swiper-slide>
+            <Swiper-slide>
+                <router-link :to="`${props.type}/`" class="main__video-item " >
+                    <span>{{ props.type == 'movie' ? 'Все фильмы' : 'Все сериалы' }}</span>
+                </router-link>
+            </Swiper-slide>
         </Swiper>
+        <div class="main__inf" :class="{active: open}">
+            <InfoBlock 
+                :current="current"
+                :type="type" 
+                @close="close"
+            />
+        </div>
     </section>
 </template>
 
@@ -25,13 +37,14 @@ import "swiper/scss/navigation";
 import { usePopular } from '@/stores/popular'
 import { onMounted, ref, computed } from "vue";
 import { imgUrl, imgUrlFull } from '@/static.js'
+import InfoBlock from "@/components/InfoBlock/InfoBlock.vue";
 
 
 
 const props = defineProps(['type'])
 const popular = usePopular()
 
-let modules = ref(Navigation)
+let modules = ref([Navigation])
 let swiperOptions = ref({
     breakpoints: {
         320: {
@@ -57,6 +70,17 @@ const content = computed(() => props.type == 'movie' ? popular.popularMovies : p
 onMounted(() => {
     popular.getPopular({ type: props.type })
 })
+
+
+
+let current = ref(null)
+let inf = ref(null)
+
+let open = ref(true)
+
+const close = () => {
+    console.log(current.value);
+}
 
 </script>
 
