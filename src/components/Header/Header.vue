@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <nav class="nav">
+        <nav class="nav" id="navHeight">
             <div class="container">
                 <div class="nav__container">
                     <router-link to="/" class="">
