@@ -20,7 +20,10 @@ app.use(VueLazyload, {
 
 import Loader from '@/components/UI/Loader.vue'
 import BtnMore from "@/components/UI/BtnMore.vue";
+import Actors from "@/components/UI/Actors.vue";
+
 app.component('Loader', Loader)
 app.component('BtnMore', BtnMore)
+app.component('Actors', Actors)
 
 app.mount('#app')

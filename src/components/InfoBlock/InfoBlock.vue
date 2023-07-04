@@ -5,31 +5,43 @@
             <img :src="imgUrlFull + current.backdrop_path" class="main__info-img" alt="">
             <div class="main__info-content">
                 <div class="main__info-content-block">
-                    <h2 class="main__info-content-title">{{ current.title || current.name}}</h2>
+                    <h2 class="main__info-content-title">{{ current.title || current.name }}</h2>
                     <p class="main__info-content-text">
                         {{ current.overview }}
                     </p>
                     <p class="main__info-content-date">
                         <span>
-                        {{ 
-                            new Date (current.first_air_date).getFullYear() ||
-                            new Date (current.release_date).getFullYear()
-                        }} </span>
+                            {{ getDate }}{{ getGenres.toLowerCase() }}
+                        </span>
                         <span>
-                            {{ getGenres }}
+                            {{ getTime }}
                         </span>
                     </p>
+                    <Actors />
                     <BtnMore />
                 </div>
             </div>
         </div>
     </div>
 </template>
-
+ 
 <script setup>
 import { imgUrlFull } from '@/static'
-import {computed} from "vue"
+import { computed } from "vue"
 const props = defineProps(['current', 'type'])
 const getGenres = computed(() => props.current.genres.reduce((acc, item) => acc + `, ${item.name}`, ""))
+let getDate = computed(() => new Date(props.current.first_air_date).getFullYear() || new Date(props.current.release_date).getFullYear())
+const getTime = computed(() => {
+    let min = props.type == 'movie' ? props.current.runtime : props.type == 'tv' ? props.current.episode_run_time : ''
+    if (min != 0) {
+        let hours = Math.floor(min / 60)
+        let remMin = min % 60
+        if (hours == 0) {
+            return remMin + 'm'
+        } else {
+            return hours + 'h' + remMin + 'm'
+        }    
+    }
+})
 
 </script>
