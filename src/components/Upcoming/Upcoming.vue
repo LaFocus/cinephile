@@ -14,8 +14,10 @@ import Upcomingitem from '@/components/Upcoming/Upcomingitem.vue';
 import { useUpcoming } from '@/stores/upcoming'
 import { onMounted, ref, computed } from "vue"
 
+
 let upcomingStore = useUpcoming()
 const getUpcomingArr = computed(() => upcomingStore.upcoming)
+// onMounted(() => console.log(getUpcomingArr, 'апкам'))
 
 
 let slideView = ref(0)
