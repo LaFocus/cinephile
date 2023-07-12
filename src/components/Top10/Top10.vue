@@ -34,7 +34,6 @@ let top = useTop()
 const getTopArr = computed(() => top.top)
 
 onMounted(() => {top.getTop()})
-onMounted(() => {console.log(getTopArr)})
 
 let modules = ref([Navigation]);
 let swiperOptions = ref({

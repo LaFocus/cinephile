@@ -13,7 +13,6 @@ export const useActors = defineStore('itemId',{
        async getActors({type, id}) {
         try {
             let res = await axios.get(`${this.url}${type}/${id}/credits?api_key=${apiKey}&language=ru-RU`)
-            console.log(res);
         } catch (error) {
             console.log('Ошибка при получении актеров', error);
         }
