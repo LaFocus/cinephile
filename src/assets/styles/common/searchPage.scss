@@ -1,0 +1,48 @@
+.search {
+  min-height: 80vh;
+
+  &__inner {
+    margin-top: 130px;
+
+    &-input {
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    &-input::placeholder {
+      color: #141414;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 25px;
+
+      &-item {
+        width: 300px;
+        height: 462px;
+        border-radius: 10px;
+        transition: 300ms;
+
+        & img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+
+      &-item:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
