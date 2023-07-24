@@ -27,6 +27,7 @@
             </span>
           </p>
           <div class="main__info-content-actors"></div>
+          <Actors :type="props.type" :id="current.id" />
           <router-link :to="`/${props.type}/${current.id}`">
             <BtnMore />
           </router-link>
@@ -38,11 +39,9 @@
 
 <script setup>
 import { imgUrlFull } from "@/static";
-import { computed, ref, onMounted, onBeforeMount } from "vue";
-import { useActors } from "@/stores/actors";
+import { computed, ref, onMounted, onBeforeMount, watch } from "vue";
+import Actors from '@/components/UI/Actors.vue'
 
-const actorsStore = useActors();
-const actors = ref(null);
 
 const props = defineProps(["current", "type"]);
 
@@ -73,16 +72,5 @@ const getTime = computed(() => {
   }
 });
 
-const getId = computed(() => { 
-  props.current.id
-})
 
-const getActorsStore = async () => {
-  await actorsStore.getActors({type:props.type, })
-  actors.value = props.type == 'movie' ? actorsStore.actorsMovie : actorsStore.actorstv
-}
-
-
-
-onMounted(() => console.log(getId))
 </script>
