@@ -12,10 +12,18 @@ export const useSearch = defineStore({
        async getSearch(str) {
         try {
             let res = await axios.get(`${this.url}movie?api_key=${apiKey}&query=${str}&language=ru-RU`)
-            let results = res.data.results
-            const arrayWithPhoto = results.filter(movie => movie.backdrop_path != null)
-            // console.log(arrayWithPhoto);
-            this.search = arrayWithPhoto
+            if (res.data.total_results) {
+                let results = res.data.results
+                console.log(res, 'sdfsdf');
+                const arrayWithPhoto = results.filter(movie => movie.backdrop_path != null)
+                this.search = arrayWithPhoto
+            }else {
+                res = await axios.get(`${this.url}tv?api_key=${apiKey}&query=${str}&language=ru-RU`)
+                let results = res.data.results
+                console.log(res, 'sdfsdf');
+                const arrayWithPhoto = results.filter(movie => movie.backdrop_path != null)
+                this.search = arrayWithPhoto
+            }
         } catch (error) {
             console.log('Ошибка при поиске', error);
         }

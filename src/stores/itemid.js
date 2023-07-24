@@ -19,7 +19,7 @@ export const useItemid = defineStore('itemId',{
                 this.tv = res.data
             }
         } catch (error) {
-            console.log('Ошибка при получении данных по id', error);
+            console.log('при получении данных по id', error);
         }
        }
     }

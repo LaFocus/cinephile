@@ -12,6 +12,9 @@
       border: none;
       border-radius: 10px;
       margin-bottom: 30px;
+      color: #141414;
+      font-size: 18px;
+      font-weight: 700;
     }
 
     &-input::placeholder {
@@ -32,16 +35,37 @@
         border-radius: 10px;
         transition: 300ms;
 
+
+        &-link {
+          position: relative;
+          z-index: 100;
+        }
+
         & img {
+          background: linear-gradient(359deg, #000 0%, rgba(0, 0, 0, 0.72) 51.56%, rgba(0, 0, 0, 0.00) 100%);
           height: 100%;
           width: 100%;
           object-fit: cover;
           border-radius: 10px;
         }
+
+        & p {
+          position: absolute;
+          bottom: 30px;
+          right: 50%;
+          transform: translateX(50%);
+          color: white;
+          max-width: 100%;
+          z-index: 999;
+        }
       }
 
       &-item:hover {
         opacity: 0.5;
+
+        & p {
+          opacity: 1;
+        }
       }
     }
   }

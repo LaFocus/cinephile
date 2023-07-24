@@ -6,7 +6,9 @@
                 <div class="main__upcoming-info">
                     <h1 class="main__upcoming-content-title">{{ movie.title }}</h1>
                     <p class="main__upcoming-content-text">{{ movie.overview }}</p>
-                    <BtnMore />
+                    <router-link :to="`/movie/${movie.id}`">
+                        <BtnMore />
+                    </router-link>
                 </div>
             </div>
             <div class="main__upcoming-next" @click="$emit('slideNext')">

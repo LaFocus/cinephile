@@ -7,10 +7,10 @@
 
         <Swiper :modules="modules" space-between="25" :navigation="true" :breakpoints="swiperOptions.breakpoints">
             <Swiper-slide class="main__video-item" v-for="(item, idx) in content" :key="item.id" @click="getItem(item)">
-                <img v-lazy="imgUrlFull + item.poster_path" src="@/assets/images/poster.png" alt=""
-                    class="main__video-item-img">
-                <router-link :to="`${props.type}/`" class="main__video-item-link"/>
-                <h2 class="main__video-item-title">{{ item.title || item.name }}</h2>
+                    <img v-lazy="imgUrlFull + item.backdrop_path" src="@/assets/images/poster.png" alt=""
+                        class="main__video-item-img">
+                    <router-link :to="`${props.type}/`" class="main__video-item-link"/>
+                    <h2 class="main__video-item-title">{{ item.title || item.name }}</h2>
             </Swiper-slide>
             <Swiper-slide>
                 <router-link :to="`${props.type}/`" class="main__video-item " >
@@ -37,7 +37,7 @@ import "swiper/scss/navigation";
 import { usePopular } from '@/stores/popular'
 import { useItemid } from "@/stores/itemid";
 import { onMounted, ref, computed } from "vue";
-import { imgUrl, imgUrlFull } from '@/static.js'
+import { imgUrlFull } from '@/static.js'
 import InfoBlock from "@/components/InfoBlock/InfoBlock.vue";
 
 

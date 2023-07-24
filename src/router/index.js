@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import MoviesItemPage from '@/views/MoviesItemPage.vue'
+
 function load(component) {
   return () => import(`@/views/${component}.vue`)
 }
@@ -27,8 +29,15 @@ const router = createRouter({
       name: 'Search',
       component: load('SearchPage'),
     },
+    {
+      path: '/:type/:id',
+      name: 'MovieItemPage',
+      component: MoviesItemPage
+    },
 
-  ]
+  ],
+
+  mode: 'history'
 })
 
 export default router

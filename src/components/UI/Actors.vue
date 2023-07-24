@@ -1,8 +1,8 @@
 <template>
     <div class="actors">
         <div class="actors__item">
-            <img src="@/assets/images/akw.png" alt="">
-            <span>Awkwafina</span>
+            <img src="imgUrl + " alt="">
+            <span>Awkwafina </span>
         </div>
     </div>
 </template>
@@ -11,6 +11,9 @@
 import { useActors } from "@/stores/actors";
 import { computed } from "vue";
 import { imgUrl } from "@/static";
+
+const actors = useActors({type:type, id:id})
+
 </script>
 
 <style lang="scss">

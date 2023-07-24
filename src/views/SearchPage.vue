@@ -14,7 +14,10 @@
           v-for="(item, i) in arrayWithSearchedItems"
           :key="item.id"
         >
-          <img :src="imgUrl + item.backdrop_path" alt="" />
+        <router-link :to="`/movie/${item.id}`" class="search__inner__items-item-link">
+          <img :src="imgUrl + item.poster_path" alt="" />
+          <!-- <p>{{ item.title }}</p> -->
+        </router-link>
         </div>
       </div>
     </div>
@@ -41,7 +44,6 @@ let getSearch = async (str) => {
     arrayWithSearchedItems.value = results.filter(
       (movie) => movie.backdrop_path != null
     );
-    console.log(arrayWithSearchedItems);
   } catch (error) {
     console.log("Ошибка при поиске", error);
   }

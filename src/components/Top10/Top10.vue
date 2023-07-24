@@ -8,13 +8,18 @@
       :navigation="true"
       :breakpoints="swiperOptions.breakpoints"
     >
-      <Swiper-slide class="main__top10__swiper__item" v-for="(item, i) in getTopArr" :key="item.id">
-        <div class="main__top10__swiper__item-num">{{ i + 1 }}</div>
-        <img
-          :src="imgUrl + item.poster_path"
-          alt=""
-          class="main__top10__swiper__item-img"
-        />
+      <Swiper-slide
+        class="main__top10__swiper__item"
+        v-for="(item, i) in getTopArr"
+        :key="item.id"
+      >
+        <router-link :to="`/movie/${item.id}`">
+          <div class="main__top10__swiper__item-num">{{ i + 1 }}</div>
+          <img
+            :src="imgUrl + item.poster_path"
+            alt=""
+            class="main__top10__swiper__item-img"
+        /></router-link>
       </Swiper-slide>
     </Swiper>
   </section>
@@ -27,13 +32,14 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import { onMounted, ref, computed } from "vue";
 import { useTop } from "@/stores/top";
-import { imgUrl, imgUrlFull } from '@/static.js'
+import { imgUrl, imgUrlFull } from "@/static.js";
 
+let top = useTop();
+const getTopArr = computed(() => top.top);
 
-let top = useTop()
-const getTopArr = computed(() => top.top)
-
-onMounted(() => {top.getTop()})
+onMounted(() => {
+  top.getTop();
+});
 
 let modules = ref([Navigation]);
 let swiperOptions = ref({
