@@ -10,6 +10,10 @@
       flex-direction: column;
       position: relative;
 
+      @include media(1000) {
+        align-items: center;
+      }
+
       &-black {
         position: absolute;
         top: 0;
@@ -29,10 +33,18 @@
         height: 630px;
         object-fit: cover;
         filter: blur(10px);
+
+        @include media (1300) {
+          display: none;
+        }
       }
 
 
       &-desc {
+        @include media(572) {
+          max-width: 300px;
+          width: 100%;
+        }
 
         &-title {
           color: #FFF;
@@ -40,6 +52,11 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+
+          @include media(1000) {
+            text-align: center;
+          }
+          
         }
 
         &-text {
@@ -50,6 +67,17 @@
           line-height: 30px;
           max-width: 930px;
           margin: 28px 0;
+
+          @include media(1365) {
+            max-width: 500px;
+          }
+          @include media(1000) {
+            text-align: center;
+          }
+          @include media(572) {
+            margin: 0 auto;
+            margin: 25px 0;
+          }
         }
 
         &-date {
@@ -59,6 +87,9 @@
           font-weight: 700;
           line-height: 30px;
           margin-bottom: 100px;
+          @include media(1000) {
+            text-align: center;
+          }
         }
 
         &-mainChar {
@@ -81,6 +112,10 @@
           font-weight: 400;
           line-height: 30px;
           transition: 300ms;
+          @include media(1000) {
+            align-self: center;
+            margin: 0 auto;
+          }
         }
 
         &-btn:hover {
@@ -94,6 +129,12 @@
         gap: 15px;
         margin-top: 30px;
         align-self: center;
+        flex-wrap: wrap;
+
+        @include media(1240px) {
+          max-width: 1000px;
+          width: 100%;
+        }
 
         &-item {
           border-radius: 25px;
@@ -127,6 +168,15 @@
         height: 462px;
         border-radius: 10px;
 
+        @include media(1600) {
+          right: 100px;
+        }
+        @include media(1000) {
+          position: static;
+          margin: 0 auto;
+          margin-top: 50px;
+        }
+
         & img {
           width: 100%;
           height: 100%;
@@ -145,6 +195,7 @@
         align-items: center;
         justify-content: center;
         gap: 80px;
+        flex-wrap: wrap;
 
         &-item {
           display: flex;
@@ -178,6 +229,7 @@
           justify-content: center;
           margin-top: 30px;
           gap: 25px;
+          flex-wrap: wrap;
 
           &-item {
             border-radius: 10px;

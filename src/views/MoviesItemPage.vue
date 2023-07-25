@@ -19,6 +19,9 @@
             <img src="@/assets/images/play.svg" alt="">
             Смотреть трейлер
           </button>
+          <div class="moviesItemPage__inner__header-img">
+            <img v-lazy="imgUrlFull + item.backdrop_path" alt="" />
+          </div>
           <p class="moviesItemPage__inner__header-desc-mainChar" v-if="actors">
             В главных ролях
           </p>
@@ -35,9 +38,6 @@
               >{{item.name}}</span
             >
           </div>
-        </div>
-        <div class="moviesItemPage__inner__header-img">
-          <img v-lazy="imgUrlFull + item.backdrop_path" alt="" />
         </div>
       </div>
 
