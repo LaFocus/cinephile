@@ -5,8 +5,12 @@
 
     @include media(576) {
         height: 75vh;
-
     }
+    @include media(400) {
+        height: 50vh;
+    }
+
+    
     &-item {
         height: 100%;
 

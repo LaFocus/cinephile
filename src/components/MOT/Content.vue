@@ -5,7 +5,7 @@
             <img src="@/assets/images/arrow.png" alt="">
         </router-link>
 
-        <Swiper :modules="modules" space-between="25" :navigation="true" :breakpoints="swiperOptions.breakpoints">
+        <Swiper :modules="modules" :navigation="true" :breakpoints="swiperOptions.breakpoints">
             <Swiper-slide class="main__video-item" v-for="(item, idx) in content" :key="item.id" @click="getItem(item)">
                     <img v-lazy="imgUrlFull + item.backdrop_path" src="@/assets/images/poster.png" alt=""
                         class="main__video-item-img">
@@ -50,16 +50,16 @@ let modules = ref([Navigation])
 let swiperOptions = ref({
     breakpoints: {
         320: {
-            slidesPerView: 1
+            slidesPerView: 4
         },
         576: {
-            slidesPerView: 2
+            slidesPerView: 4
         },
         900: {
-            slidesPerView: 3
+            slidesPerView: 4
         },
         1200: {
-            slidesPerView: 4
+            slidesPerView: 5
         },
         1400: {
             slidesPerView: 5

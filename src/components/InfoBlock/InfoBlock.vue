@@ -26,7 +26,6 @@
               {{ getTime }}
             </span>
           </p>
-          <div class="main__info-content-actors"></div>
           <Actors :type="props.type" :id="current.id" />
           <router-link :to="`/${props.type}/${current.id}`">
             <BtnMore />

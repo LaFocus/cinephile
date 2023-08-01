@@ -3,6 +3,9 @@
   &__inner {
     padding: 200px 0 30px 50px;
 
+    @include media(576) {
+      padding: 50px 0 30px 0;
+    }
 
 
     &__header {
@@ -55,8 +58,9 @@
 
           @include media(1000) {
             text-align: center;
+            font-size: 30px;
           }
-          
+
         }
 
         &-text {
@@ -71,9 +75,12 @@
           @include media(1365) {
             max-width: 500px;
           }
+
           @include media(1000) {
             text-align: center;
+            font-size: 15px;
           }
+
           @include media(572) {
             margin: 0 auto;
             margin: 25px 0;
@@ -87,6 +94,7 @@
           font-weight: 700;
           line-height: 30px;
           margin-bottom: 100px;
+
           @include media(1000) {
             text-align: center;
           }
@@ -94,6 +102,13 @@
 
         &-mainChar {
           margin-top: 70px;
+
+          @include media(1000) {
+            gap: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
 
         &-btn {
@@ -112,9 +127,11 @@
           font-weight: 400;
           line-height: 30px;
           transition: 300ms;
+
           @include media(1000) {
             align-self: center;
             margin: 0 auto;
+            font-size: 15px;
           }
         }
 
@@ -131,9 +148,13 @@
         align-self: center;
         flex-wrap: wrap;
 
-        @include media(1240px) {
+        @include media(1240) {
           max-width: 1000px;
           width: 100%;
+        }
+
+        @include media(500) {
+          justify-content: center;
         }
 
         &-item {
@@ -145,16 +166,26 @@
           gap: 10px;
           padding-right: 15px;
 
+          @include media(500) {
+            font-size: 12px;
+          }
+
           &-img {
             border-radius: 50%;
             width: 50px;
             height: 50px;
+
+            @include media(500) {
+              width: 30px;
+              height: 30px;
+            }
 
             & img {
               border-radius: 50%;
               width: 100%;
               height: 100%;
               object-fit: cover;
+
             }
           }
         }
@@ -171,10 +202,16 @@
         @include media(1600) {
           right: 100px;
         }
+
         @include media(1000) {
           position: static;
           margin: 0 auto;
           margin-top: 50px;
+        }
+
+        @include media(500) {
+          width: 230px;
+          height: 350px;
         }
 
         & img {
@@ -230,6 +267,9 @@
           margin-top: 30px;
           gap: 25px;
           flex-wrap: wrap;
+          @include media(500) {
+            gap: 10px;
+          }
 
           &-item {
             border-radius: 10px;
@@ -240,6 +280,23 @@
               height: 462px;
               object-fit: fill;
               border-radius: 10px;
+
+              @include media(930) {
+                height: 400px;
+                width: 262px;
+              }
+              @include media(670) {
+                height: 300px;
+                width: 200px;
+              }
+              @include media(460) {
+                height: 170px;
+                width: 111px;
+              }
+              @include media(386) {
+                height: 140px;
+                width: 92px;
+              }
             }
           }
 

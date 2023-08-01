@@ -51,6 +51,10 @@ onMounted(async () => {
       height: 50px;
       object-fit: cover;
       border-radius: 50%;
+      @media screen and (max-width: 1183px) {
+        width: 30px;
+        height: 30px;
+      }
     }
 
     & span {
@@ -59,6 +63,9 @@ onMounted(async () => {
       font-size: 16px;
       font-weight: 400;
       line-height: 30px;
+      @media screen and (max-width: 1183px) {
+        font-size: 12px;
+      }
     }
   }
 }

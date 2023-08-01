@@ -1,20 +1,21 @@
 <template>
-  <section class="main__top10">
+  <section class="main__top10" v-if="getTopArr">
     <h3 class="main__top10-title">Топ <span>10</span></h3>
     <Swiper
       class="main__top10__swiper"
       :modules="modules"
-      space-between="25"
       :navigation="true"
       :breakpoints="swiperOptions.breakpoints"
     >
       <Swiper-slide
         class="main__top10__swiper__item"
-        v-for="(item, i) in getTopArr"
+        v-for="(item, i) in getTopArr.slice(10)"
         :key="item.id"
       >
         <router-link :to="`/movie/${item.id}`">
-          <div class="main__top10__swiper__item-num">{{ i + 1 }}</div>
+          <div class="main__top10__swiper__item-num">
+            <span>{{ i + 1 }}</span>
+          </div>
           <img
             :src="imgUrl + item.poster_path"
             alt=""
@@ -45,10 +46,13 @@ let modules = ref([Navigation]);
 let swiperOptions = ref({
   breakpoints: {
     320: {
-      slidesPerView: 1,
+      slidesPerView: 2,
+    },
+    470: {
+      slidesPerView: 2,
     },
     900: {
-      slidesPerView: 2,
+      slidesPerView: 3,
     },
     1400: {
       slidesPerView: 3,

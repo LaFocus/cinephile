@@ -1,15 +1,19 @@
-.main__inf {
-    position: relative;
-    overflow: hidden;
-    transition: 300ms;
-    height: 0;
+// .main__info {
+//     position: relative;
+//     overflow: hidden;
+//     transition: 300ms;
+//     height: 0;
 
-    &.active {
-        height: 700px;
-    }
-}
+//     &.active {
+//         height: 700px;
+//     }
+// }
 
 .main__info {
+
+    @include media(1183) {
+        font-size: 1px;
+    }
     &-close {
         position: absolute;
         top: 30px;
@@ -57,6 +61,9 @@
             font-weight: 700;
             line-height: 59px;
             color: white;
+            @include media(1183) {
+                font-size: 40px;
+            }
         }
 
         &-text {
@@ -67,6 +74,9 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             display: -webkit-box;
+            @include media(1183) {
+                font-size: 16px;
+            }
         }
 
         &-date {
@@ -76,6 +86,9 @@
             display: flex;
             align-items: center;
             gap: 30px;
+            @include media(1183) {
+                font-size: 16px;
+            }
 
             & span {
                 font-family: 'Montserrat', sans-serif;

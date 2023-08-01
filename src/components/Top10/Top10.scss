@@ -3,6 +3,10 @@
   padding: 30px 0 90px 0;
   margin-bottom: 70px;
 
+  @include media(700) {
+    padding: 10px;
+  }
+
   &-title {
     color: #141414;
     font-size: 30px;
@@ -12,6 +16,11 @@
     display: flex;
     gap: 15px;
     margin-left: 100px;
+
+    @include media(700) {
+      height: 70px;
+      margin-left: 50px;
+    }
 
     & span {
       color: #149A03;
@@ -26,30 +35,126 @@
   &__swiper {
     padding: 0 100px !important;
 
+    @include media(700) {
+      padding: 0 50px !important;
+    }
+    @include media(532) {
+      padding: 0 25px !important;
+    }
+    @include media(470) {
+      padding: 0 10px !important;
+    }
+
     &__item {
       width: 450px;
       height: 450px;
       border-radius: 10px;
       background: black;
       transition: 400ms;
+      margin-right: 25px;
+
+      @include media(1336) {
+        height: 400px;
+      }
+
+      @include media(1000) {
+        height: 320px;
+      }
+
+      @include media(900) {
+        height: 216px;
+      }
+
+      @include media(700) {
+        height: 150px;
+        margin-right: 15px;
+      }
+
+      @include media(532) {
+        height: 120px;
+        margin-right: 15px;
+      }
+
+      @include media(470) {
+        height: 170px;
+        margin-right: 10px;
+      }
 
       &-num {
         background: linear-gradient(90deg, #141414 50%, rgba(20, 20, 20, 0.00) 100%);
         display: flex;
-        justify-content: flex-start;
         align-items: center;
         height: 100%;
         width: 100%;
         color: #FFF;
-        font-size: 150px;
-        font-style: italic;
-        font-weight: 700;
-        line-height: normal;
-        color: #fff;
-        border-radius: 10px;
+
+        border-radius: 45px;
         position: absolute;
         z-index: 10;
-        padding: 80px ;
+        padding: 80px;
+
+        
+        @include media(700) {
+          background: linear-gradient(90deg, #141414 45%, rgba(20, 20, 20, 0.00) 80%);
+          font-size: 70px;
+          justify-content: flex-end;
+        }
+        
+        @include media(576) {
+          font-size: 70px;
+        }
+        
+        @include media(532) {
+          padding: 20px;
+        }
+        
+        @include media(470) {
+          justify-content: flex-start;
+          // padding: 10px;
+        }
+        
+        @include media(375) {
+          background: 0;
+          transform: translateX(-50%);
+          font-size: 70px;
+          justify-content: flex-end;
+        }
+
+        & span {
+          font-size: 150px;
+          font-style: italic;
+          font-weight: 700;
+          line-height: normal;
+          color: #fff;
+
+          @include media(1336) {
+            transform: translateX(-70%);
+            font-size: 120px;
+          }
+
+          @include media(1000) {
+            transform: translateX(-150%);
+            font-size: 80px;
+          }
+
+          @include media(700) {
+            transform: translateX(-150%);
+            font-size: 50px;
+          }
+
+          @include media(532) {
+            transform: translateX(-265%);
+
+            font-size: 40px;
+          }
+
+          @include media(470) {
+            transform: translateX(0%);
+
+
+            font-size: 70px;
+          }
+        }
       }
 
       &-img {
@@ -61,6 +166,18 @@
         position: absolute;
         right: 0;
         z-index: 1;
+      }
+    }
+
+    &__item:last-child {
+
+      &-num {
+
+        & span {
+          @include media(375) {
+            color: black;
+          }
+        }
       }
     }
 
