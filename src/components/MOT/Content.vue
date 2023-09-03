@@ -74,16 +74,22 @@ onMounted(() => {
 })
 
 const getItem = async item => {
+    
     current.value = null
     await itemIdStore.getItemId({type: props.type, id: item.id})
     current.value = props.type == 'movie' ? itemIdStore.movie : itemIdStore.tv
 
     open.value = true
-    let infTop = inf.value.offsetTop
-    window.scrollTo({
-        top: infTop - navHeight.offsetHeight,
-        behavior: 'smooth'
-    })
+    if (window.innerWidth > 900) {
+        let infTop = inf.value.offsetTop
+        window.scrollTo({
+            top: infTop - navHeight.offsetHeight,
+            behavior: 'smooth'
+        })
+    }
+    else {
+        console.log(window);
+    }
 }
 
 let current = ref(null)

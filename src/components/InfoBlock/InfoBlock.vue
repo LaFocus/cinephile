@@ -38,7 +38,7 @@
 
 <script setup>
 import { imgUrlFull } from "@/static";
-import { computed, ref, onMounted, onBeforeMount, watch } from "vue";
+import { computed} from "vue";
 import Actors from '@/components/UI/Actors.vue'
 
 

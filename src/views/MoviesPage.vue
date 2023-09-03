@@ -53,7 +53,7 @@
 import { usePopular } from "@/stores/popular";
 import { usePopularScroll } from "@/stores/popularScroll";
 import { ref, onMounted, computed } from "vue";
-import { imgUrl, imgUrlFull } from "@/static";
+import { imgUrl } from "@/static";
 
 let popular = usePopular();
 let popularScroll = usePopularScroll()
@@ -69,7 +69,6 @@ document.addEventListener("scroll", (e) => {
     for (const item of popularScroll.popularScrollMovies) {
       itemsArr.value.push(item)
     }
-    console.log(itemsArr);
   }
 });
 
